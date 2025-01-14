@@ -413,7 +413,7 @@ defmodule AddressUS.Parser do
           contains_po_box?(tail) || is_state?(tail_head) ->
             get_secondary(tail, backup, pmb, designator, value, false)
 
-          tail_head == '&' ->
+          tail_head == ~c"&" ->
             get_secondary(tail_tail, backup, pmb, designator, tail_head <> " " <> head, false)
 
           safe_starts_with?(value, "&") ->
